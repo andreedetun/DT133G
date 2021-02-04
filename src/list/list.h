@@ -10,6 +10,7 @@ typedef struct list_t {
 
 int isEmpty(List* list);
 
+// Allocates memory for a list
 List* initList();
 
 void insert(List* list, int key);
