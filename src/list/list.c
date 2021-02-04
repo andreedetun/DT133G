@@ -6,7 +6,10 @@ int isEmpty(List* list) {
     return list->head == NULL;
 }
 
-// OBS: Segmentation fault atm.
+List* initList() {
+    return (List*)malloc(sizeof(List));
+}
+
 void insert(List* list, int key) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->key = key;
