@@ -6,11 +6,13 @@ typedef struct node_t {
 
 typedef struct list_t {
     struct node_t* head;
+    struct node_t* tail;
 } List;
 
 int isEmpty(List* list);
 
-// Allocates memory for a list
 List* initList();
 
 void insert(List* list, int key);
+
+Node* search(List* list, int k);
