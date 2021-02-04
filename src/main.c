@@ -14,7 +14,6 @@ int main(){
     printf("Empty: %d\n", isEmpty(list));
     printf("Searched: %d\n", test->key);
 
-    free(list);
-    free(test);
+    freeList(list);
     return 0;
 }

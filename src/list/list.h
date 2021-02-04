@@ -15,4 +15,6 @@ List* initList();
 
 void insert(List* list, int key);
 
-Node* search(List* list, int k);
+Node* search(List* list, int key);
+
+void freeList(List* list);
