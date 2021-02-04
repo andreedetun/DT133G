@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/andre/Documents/repos/DT133G/src/list/list.h
+
+/Users/andre/Documents/repos/DT133G/src/main.c
+stdio.h
+-
+stdlib.h
+-
+list/list.h
+/Users/andre/Documents/repos/DT133G/src/list/list.h
+

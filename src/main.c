@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "list/list.h"
 
 int main(){
-    printf("Hello world!\n");
+    List* list = NULL;
+    insert(list, 20);
     return 0;
 }
