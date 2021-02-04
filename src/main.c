@@ -3,6 +3,7 @@
 #include "list/list.h"
 
 int main(){
+	// TEST
     List* list = initList();
     insert(list, 20);
     insert(list, 40);
