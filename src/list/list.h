@@ -21,6 +21,15 @@ void delete(List* list, Node* node);
 
 Node* search(List* list, int key);
 
+Node* maximum(List* list);
+
+Node* minimum(List* list);
+
+Node* successor(List* list, Node* node);
+
+Node* predeccessor(List* list, Node* node);
+
 // Helper functions
 void printList(List* list);
+
 void freeList(List* list);

@@ -19,14 +19,14 @@ void insert(List* list, int key) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->key = key;
 
-    newNode->next = list->head;
-    if(list->head != NULL) {
-        list->head->prev = newNode;
+    if(list->head == NULL) {
+        list->head = newNode;
+        list->tail = newNode;
+    } else {
+        list->tail->next = newNode;
+        newNode->prev = list->tail;
+        list->tail = newNode;
     }
-
-    list->head = newNode;
-    list->tail = newNode->next;
-    newNode->prev = NULL;
 }
 
 // The unlink function is mainly written to be used inside the delete function.
@@ -74,6 +74,74 @@ Node* search(List* list, int key) {
     for(;current; current = current->next) {
         if(current->key == key){
             return current;
+        }
+    }
+    return NULL;
+}
+
+Node* maximum(List* list) {
+    Node* current = list->head;
+    Node* max = current;
+
+    for(; current; current = current->next) {
+        if(current->key > max->key) {
+            max = current;
+        }
+    }
+    return max;
+}
+
+Node* minimum(List* list) {
+    Node* current = list->head;
+    Node* min = current;
+
+    for(; current; current = current->next) {
+        if(current->key < min->key) {
+            min = current;
+        }
+    }
+    return min;
+}
+
+Node* successor(List* list, Node* node) {
+    Node* current = node;
+    Node* tmp = node;
+    Node* max = maximum(list);
+
+    if(current->next == NULL) {
+        current = list->head;
+    }
+
+    // The maximum node wont have a successor so we need to return NULL in that case.
+    if(current == max) {
+        return NULL;
+    }
+
+    for(; tmp; tmp = tmp->next) {
+        if(tmp->key > current->key) {
+            return tmp;
+        }
+    }
+    return NULL;
+}
+
+Node* predeccessor(List* list, Node* node) {
+    Node* current = node;
+    Node* tmp = node;
+    Node* min = minimum(list);
+
+    if(current->prev == NULL) {
+        current = list->tail;
+    }
+
+    // The minimum node wont have a predeccessor so we need to return NULL in that case.
+    if(current == min) {
+        return NULL;
+    }
+
+    for(; tmp; tmp = tmp->prev) {
+        if(tmp->key < current->key) {
+            return tmp;
         }
     }
     return NULL;
