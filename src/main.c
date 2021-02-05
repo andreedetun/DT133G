@@ -9,11 +9,14 @@ int main(){
     insert(list, 60);
     insert(list, 10);
 
-    Node* test = search(list, 10);
+    Node* test = search(list, 60);
 
-    printf("Empty: %d\n", isEmpty(list));
-    printf("Searched: %d\n", test->key);
+    //printf("Empty: %d\n", isEmpty(list));
+    //printf("Searched: %d\n", test->key);
+    //printList(list);
+    delete(list, test);
 
+    printList(list);
     freeList(list);
     return 0;
 }

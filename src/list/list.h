@@ -15,6 +15,10 @@ List* initList();
 
 void insert(List* list, int key);
 
+void delete(List* list, Node* node);
+
 Node* search(List* list, int key);
 
+// Helper functions
+void printList(List* list);
 void freeList(List* list);

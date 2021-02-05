@@ -14,7 +14,7 @@ List* initList() {
 }
 
 // TODO: We should probably check if the list in the param is NULL or not and initialize it with the "initList" function.
-// TODO: We also need to sort the list
+// TODO: We also need to sort the list (??)
 void insert(List* list, int key) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->key = key;
@@ -29,7 +29,37 @@ void insert(List* list, int key) {
     newNode->prev = NULL;
 }
 
+// The delete function requires the use of the search function to retrieve a pointer
+// to the node that should be deleted. We should consider making an override of the delete
+// function if we wish to delete a node based on some other params, tho the logic stays the same.
+void delete(List* list, Node* node) {
+    // Make sure the list we are trying to delete a node from is NOT empty.
+    if(isEmpty(list)) {
+        printf("Can't delete a node from an empty list.\n");
+        return;
+    }
+
+    if(node->prev != NULL) {
+        node->prev->next = node->next;
+    } else {
+        list->head = node->next;
+    }
+
+    if(node->next != NULL) {
+        node->next->prev = node->prev;
+    }
+
+    // Make sure to free the memory of the node that has been unlinked.
+    free(node);
+}
+
 Node* search(List* list, int key) {
+    // Make sure the list we are trying to search is NOT empty.
+    if(isEmpty(list)) {
+        printf("Can't search an empty list.\n");
+        return NULL;
+    }
+
     Node* current = list->head;
     for(;current; current = current->next) {
         if(current->key == key){
@@ -37,6 +67,13 @@ Node* search(List* list, int key) {
         }
     }
     return NULL;
+}
+
+void printList(List* list) {
+    Node* current = list->head;
+    for(; current; current = current->next) {
+        printf("[%d]->", current->key);
+    }
 }
 
 void freeList(List* list) {
