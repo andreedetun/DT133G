@@ -13,13 +13,12 @@ List* initList() {
     return tmp;
 }
 
-// TODO: We should probably check if the list in the param is NULL or not and initialize it with the "initList" function.
-// TODO: We also need to sort the list (??)
+// TODO: We might need to sort the list on insertion. (???)ßßß
 void insert(List* list, int key) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->key = key;
 
-    if(list->head == NULL) {
+    if(isEmpty(list)) {
         list->head = newNode;
         list->tail = newNode;
     } else {
@@ -49,15 +48,16 @@ void unlinkNode(List* list, Node* node) {
     }
 }
 
-// The delete function requires the use of the search function to retrieve a pointer
-// to the node that should be deleted. We should consider making an override of the delete
-// function if we wish to delete a node based on some other params, tho the logic stays the same.
+// The delete function requires a pointer to the node that should be deleted.
+// We should consider making an override of the delete
+// function if we wish to delete a node based on some other params, though the delete logic stays the same.
 void delete(List* list, Node* node) {
     // Make sure the list we are trying to delete a node from is NOT empty.
     if(isEmpty(list)) {
         printf("Can't delete a node from an empty list.\n");
         return;
     }
+    
     unlinkNode(list, node);
     // Make sure to free the memory of the node that has been unlinked.
     free(node);
@@ -80,6 +80,11 @@ Node* search(List* list, int key) {
 }
 
 Node* maximum(List* list) {
+    if(isEmpty(list)) {
+        printf("Can't find the maximum node of an empty list.\n");
+        return NULL;
+    }
+
     Node* current = list->head;
     Node* max = current;
 
@@ -92,6 +97,11 @@ Node* maximum(List* list) {
 }
 
 Node* minimum(List* list) {
+    if(isEmpty(list)) {
+        printf("Can't find the minimum node of an empty list.\n");
+        return NULL;
+    }
+
     Node* current = list->head;
     Node* min = current;
 
@@ -104,6 +114,11 @@ Node* minimum(List* list) {
 }
 
 Node* successor(List* list, Node* node) {
+    if(isEmpty(list)) {
+        printf("Can't find a successor of a node from an empty list.\n");
+        return NULL;
+    }
+
     Node* current = node;
     Node* tmp = node;
     Node* max = maximum(list);
@@ -125,7 +140,12 @@ Node* successor(List* list, Node* node) {
     return NULL;
 }
 
-Node* predeccessor(List* list, Node* node) {
+Node* predecessor(List* list, Node* node) {
+    if(isEmpty(list)) {
+        printf("Can't find a predecessor of a node from an empty list.\n");
+        return NULL;
+    }
+
     Node* current = node;
     Node* tmp = node;
     Node* min = minimum(list);
@@ -134,7 +154,7 @@ Node* predeccessor(List* list, Node* node) {
         current = list->tail;
     }
 
-    // The minimum node wont have a predeccessor so we need to return NULL in that case.
+    // The minimum node wont have a predecessor so we need to return NULL in that case.
     if(current == min) {
         return NULL;
     }
@@ -148,13 +168,26 @@ Node* predeccessor(List* list, Node* node) {
 }
 
 void printList(List* list) {
+    if(isEmpty(list)) {
+        printf("Can't print an empty list.\n");
+        return;
+    }
+
     Node* current = list->head;
     for(; current; current = current->next) {
         printf("[%d]->", current->key);
     }
+    printf("\n");
 }
 
+// Since freeing the parent struct (the list itself) wont free all the nodes inside the list
+// we want to make sure that we clean all that up as well to avoid memory leaks.
 void freeList(List* list) {
+    if(isEmpty(list)) {
+        printf("Can't free an empty list.\n");
+        return;
+    }
+
     Node* current = list->head;
     Node* tmp = NULL;
     while(current) {
@@ -162,5 +195,7 @@ void freeList(List* list) {
         current = current->next;
         free(tmp);
     }
+    // Now that all the nodes inside the list are freed up we can safely
+    // free the memory of the list itself.
     free(list);
 }

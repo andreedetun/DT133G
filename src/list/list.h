@@ -1,3 +1,6 @@
+#ifndef LAB_1_LIST_H
+#define LAB_1_LIST_H
+
 typedef struct node_t {
     int key;
     struct node_t* next;
@@ -27,9 +30,11 @@ Node* minimum(List* list);
 
 Node* successor(List* list, Node* node);
 
-Node* predeccessor(List* list, Node* node);
+Node* predecessor(List* list, Node* node);
 
 // Helper functions
 void printList(List* list);
 
 void freeList(List* list);
+
+#endif
