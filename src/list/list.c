@@ -190,8 +190,8 @@ Node *predecessor(List *list, Node *node) {
     Node *tmp = node;
     Node *min = minimum(list);
 
-    if (current->prev == NULL) {
-        current = list->tail;
+    if (current->next == NULL) {
+        current = list->head;
     }
 
     // The minimum node wont have a predecessor so we need to return NULL in that case.
@@ -199,7 +199,7 @@ Node *predecessor(List *list, Node *node) {
         return NULL;
     }
 
-    for (; current; current = current->prev) {
+    for (; current; current = current->next) {
         if (current->key < tmp->key) {
             return current;
         }

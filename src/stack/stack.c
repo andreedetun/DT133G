@@ -35,3 +35,15 @@ void pop(Stack *stack) {
 void printStack(Stack *stack) {
     printList(stack->list);
 }
+
+void freeStack(Stack *stack) {
+    if (stackEmpty(stack)) {
+        printf("Can't free an empty stack.\n");
+        return;
+    }
+    freeList(stack->list);
+    // Now that all the nodes inside the list are freed up we can safely
+    // free the memory of the list itself.
+    free(stack->top);
+    free(stack);
+}

@@ -19,4 +19,6 @@ void pop(Stack *stack);
 // Helper functions
 void printStack(Stack *stack);
 
+void freeStack(Stack* stack);
+
 #endif //LAB_1_STACKS_H

@@ -12,5 +12,6 @@ int main(){
 
     printStack(stack);
     printf("len: %d\n", stack->list->length);
+    freeStack(stack);
     return 0;
 }
