@@ -10,6 +10,7 @@ List *createList() {
     List *tmp = (List *) malloc(sizeof(List));
     tmp->head = NULL;
     tmp->tail = NULL;
+    tmp->length = 0;
     return tmp;
 }
 
@@ -22,6 +23,7 @@ Node *createNode() {
     return tmp;
 }
 
+// TODO: add more error checks.
 // TODO: We might need to sort the list on insertion. (???)
 void insert(List *list, int key) {
     Node *newNode = createNode();
@@ -29,8 +31,12 @@ void insert(List *list, int key) {
 
     if (isEmpty(list)) {
         list->tail = newNode;
+        list->length++;
     } else {
         list->head->prev = newNode;
+
+        // increase length of the list.
+        list->length++;
     }
 
     newNode->next = list->head;
@@ -39,7 +45,7 @@ void insert(List *list, int key) {
 }
 
 // This insert function will be useful in stacks and queues.
-void insertNode(List *list, Node* node) {
+void insertNode(List *list, Node *node) {
     if (isEmpty(list)) {
         list->tail = node;
     } else {
@@ -88,6 +94,10 @@ void delete(List *list, Node *node) {
     }
 
     unlinkNode(list, node);
+
+    // decrease length of the list.
+    list->length--;
+
     // Make sure to free the memory of the node that has been unlinked.
     free(node);
 }

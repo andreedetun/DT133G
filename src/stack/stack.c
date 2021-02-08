@@ -1,6 +1,3 @@
-//
-// Created by an_de on 2021-02-08.
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
@@ -10,25 +7,31 @@ int stackEmpty(Stack *stack) {
 }
 
 Stack *createStack() {
-    Stack *tmp      = (Stack*)malloc(sizeof(Stack));
-    tmp->list       = createList();
-    tmp->top        = NULL;
+    Stack *tmp = (Stack *) malloc(sizeof(Stack));
+    tmp->list = createList();
+    tmp->top = NULL;
 
     return tmp;
 }
 
 void push(Stack *stack, int key) {
-    Node* newNode = createNode();
+    Node *newNode = createNode();
     newNode->key = key;
     insertNode(stack->list, newNode);
     stack->top = stack->list->tail;
+
+    // increase length of the list inside the stack.
+    stack->list->length++;
 }
 
-void pop(Stack* stack) {
+void pop(Stack *stack) {
     delete(stack->list, stack->top);
     stack->top = stack->list->tail;
+
+    // decrease length of the list inside the stack.
+    stack->list->length--;
 }
 
-void printStack(Stack* stack) {
+void printStack(Stack *stack) {
     printList(stack->list);
 }

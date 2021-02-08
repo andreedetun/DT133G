@@ -1,7 +1,3 @@
-//
-// Created by an_de on 2021-02-08.
-//
-
 #ifndef LAB_1_STACKS_H
 #define LAB_1_STACKS_H
 
@@ -18,9 +14,9 @@ Stack *createStack();
 
 void push(Stack *stack, int key);
 
-void pop(Stack* stack);
+void pop(Stack *stack);
 
 // Helper functions
-void printStack(Stack* stack);
+void printStack(Stack *stack);
 
 #endif //LAB_1_STACKS_H

@@ -10,6 +10,9 @@ typedef struct node_t {
 typedef struct list_t {
     struct node_t *head;
     struct node_t *tail;
+
+    // Length will be needed in queue.
+    int length;
 } List;
 
 int isEmpty(List *list);
@@ -20,7 +23,7 @@ Node *createNode();
 
 void insert(List *list, int key);
 
-void insertNode(List *list, Node* node);
+void insertNode(List *list, Node *node);
 
 void unlinkNode(List *list, Node *node);
 
