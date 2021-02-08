@@ -21,7 +21,6 @@ void push(Stack *stack, int key) {
     stack->top = stack->list->tail;
 
     // increase length of the list inside the stack.
-    stack->list->length++;
 }
 
 void pop(Stack *stack) {
@@ -29,7 +28,6 @@ void pop(Stack *stack) {
     stack->top = stack->list->tail;
 
     // decrease length of the list inside the stack.
-    stack->list->length--;
 }
 
 void printStack(Stack *stack) {
@@ -44,6 +42,5 @@ void freeStack(Stack *stack) {
     freeList(stack->list);
     // Now that all the nodes inside the list are freed up we can safely
     // free the memory of the list itself.
-    free(stack->top);
     free(stack);
 }
