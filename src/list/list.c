@@ -48,8 +48,10 @@ void insert(List *list, int key) {
 void insertNode(List *list, Node *node) {
     if (isEmpty(list)) {
         list->tail = node;
+        list->length++;
     } else {
         list->head->prev = node;
+        list->length++;
     }
 
     node->next = list->head;
