@@ -9,4 +9,6 @@ add_executable(${PROJECT_NAME} src/main.c
         src/list/list.h
         src/list/list.c
         src/stack/stack.c
-        src/stack/stack.h src/queue/queue.c src/queue/queue.h)
+        src/stack/stack.h
+        src/queue/queue.c
+        src/queue/queue.h)
