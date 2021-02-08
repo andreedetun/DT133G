@@ -19,15 +19,11 @@ void push(Stack *stack, int key) {
     newNode->key = key;
     insertNode(stack->list, newNode);
     stack->top = stack->list->tail;
-
-    // increase length of the list inside the stack.
 }
 
 void pop(Stack *stack) {
     delete(stack->list, stack->top);
     stack->top = stack->list->tail;
-
-    // decrease length of the list inside the stack.
 }
 
 void printStack(Stack *stack) {
