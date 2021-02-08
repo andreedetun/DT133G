@@ -6,5 +6,7 @@ set(dir ${CMAKE_CURRENT_SOURCE_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${dir}/build)
 
 add_executable(${PROJECT_NAME} src/main.c
-    src/list/list.h
-    src/list/list.c)
+        src/list/list.h
+        src/list/list.c
+        src/stack/stack.c
+        src/stack/stack.h)

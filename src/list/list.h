@@ -3,38 +3,42 @@
 
 typedef struct node_t {
     int key;
-    struct node_t* next;
-    struct node_t* prev;
+    struct node_t *next;
+    struct node_t *prev;
 } Node;
 
 typedef struct list_t {
-    struct node_t* head;
-    struct node_t* tail;
+    struct node_t *head;
+    struct node_t *tail;
 } List;
 
-int isEmpty(List* list);
+int isEmpty(List *list);
 
-List* initList();
+List *createList();
 
-void insert(List* list, int key);
+Node *createNode();
 
-void unlinkNode(List* list, Node* node);
+void insert(List *list, int key);
 
-void delete(List* list, Node* node);
+void insertNode(List *list, Node* node);
 
-Node* search(List* list, int key);
+void unlinkNode(List *list, Node *node);
 
-Node* maximum(List* list);
+void delete(List *list, Node *node);
 
-Node* minimum(List* list);
+Node *search(List *list, int key);
 
-Node* successor(List* list, Node* node);
+Node *maximum(List *list);
 
-Node* predecessor(List* list, Node* node);
+Node *minimum(List *list);
+
+Node *successor(List *list, Node *node);
+
+Node *predecessor(List *list, Node *node);
 
 // Helper functions
-void printList(List* list);
+void printList(List *list);
 
-void freeList(List* list);
+void freeList(List *list);
 
 #endif
