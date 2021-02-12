@@ -36,7 +36,7 @@ void freeStack(Stack *stack) {
         return;
     }
     freeList(stack->list);
-    // Now that all the nodes inside the list are freed up we can safely
+    // Now that all the nodes inside the stack are freed up we can safely
     // free the memory of the list itself.
     free(stack);
 }

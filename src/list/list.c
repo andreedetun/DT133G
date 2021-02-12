@@ -160,26 +160,27 @@ Node *successor(List *list, Node *node) {
         return NULL;
     }
 
-    Node *current = node;
-    Node *tmp = node;
+    Node *current = list->head;
     Node *max = maximum(list);
+    Node *ret = NULL;
 
     if (current->next == NULL) {
         current = list->head;
     }
 
     // The maximum node wont have a successor so we need to return NULL in that case.
-    if (current == max) {
+    if (node == max) {
         return NULL;
     }
 
-    for (; current; current = current->next) {
-        if (current->key > tmp->key) {
-            return current;
+    for(; current; current = current->next) {
+        if(current->key > node->key) {
+            if(ret == NULL || ret->key > current->key) {
+                ret = current;
+            }
         }
     }
-
-    return NULL;
+    return ret;
 }
 
 Node *predecessor(List *list, Node *node) {
@@ -188,25 +189,27 @@ Node *predecessor(List *list, Node *node) {
         return NULL;
     }
 
-    Node *current = node;
-    Node *tmp = node;
+    Node *current = list->head;
     Node *min = minimum(list);
+    Node *ret = NULL;
 
     if (current->next == NULL) {
         current = list->head;
     }
 
-    // The minimum node wont have a predecessor so we need to return NULL in that case.
-    if (current == min) {
+    // The maximum node wont have a successor so we need to return NULL in that case.
+    if (node == min) {
         return NULL;
     }
 
-    for (; current; current = current->next) {
-        if (current->key < tmp->key) {
-            return current;
+    for(; current; current = current->next) {
+        if(current->key < node->key) {
+            if(ret == NULL || ret->key < current->key) {
+                ret = current;
+            }
         }
     }
-    return NULL;
+    return ret;
 }
 
 void printList(List *list) {

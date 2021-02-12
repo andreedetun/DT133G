@@ -4,14 +4,17 @@
 #include "stack/stack.h"
 
 int main(){
-    Stack *stack = createStack();
-    push(stack, 2);
-    push(stack, 22);
-    push(stack, 12);
-    push(stack, 40);
+    List* list = createList();
+    insert(list, 23);
+    insert(list, 45);
+    insert(list, 24);
+    insert(list, 12);
 
-    printStack(stack);
-    printf("len: %d\n", stack->list->length);
-    freeStack(stack);
+    Node* searched = search(list, 45);
+    Node* succ = predecessor(list, searched);
+
+    printList(list);
+    printf("%d\n", succ->key);
+
     return 0;
 }
