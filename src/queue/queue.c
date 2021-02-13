@@ -7,7 +7,7 @@ int queueEmpty(Queue* queue) {
 }
 
 Queue *createQueue() {
-    Queue *tmp = malloc(sizeof(Queue));
+    Queue *tmp = (Queue*)malloc(sizeof(Queue));
     tmp->list = createList();
     tmp->head = NULL;
     tmp->tail = NULL;
