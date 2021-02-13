@@ -11,6 +11,8 @@ Queue *createQueue() {
     tmp->list = createList();
     tmp->head = NULL;
     tmp->tail = NULL;
+
+    return tmp;
 }
 
 void enqueue(Queue *queue, int key) {

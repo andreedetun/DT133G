@@ -12,7 +12,7 @@ typedef struct list_t {
     struct node_t *tail;
 
     // Length will be needed in queue.
-    int length;
+    size_t length;
 } List;
 
 int isEmpty(List *list);
