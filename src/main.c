@@ -2,19 +2,15 @@
 #include <stdio.h>
 #include "list/list.h"
 #include "stack/stack.h"
+#include "queue/queue.h"
 
 int main(){
-    List* list = createList();
-    insert(list, 23);
-    insert(list, 45);
-    insert(list, 24);
-    insert(list, 12);
+    Queue *queue = createQueue();
+    enqueue(queue, 10);
+    enqueue(queue, 16);
+    enqueue(queue, 19);
 
-    Node* searched = search(list, 45);
-    Node* succ = predecessor(list, searched);
-
-    printList(list);
-    printf("%d\n", succ->key);
-
+    printQueue(queue);
+    freeQueue(queue);
     return 0;
 }

@@ -10,8 +10,16 @@ typedef struct queue_t {
     struct node_t *tail;
 } Queue;
 
-void enqueue(Queue *queue);
+int queueEmpty(Queue* queue);
+
+Queue *createQueue();
+
+void enqueue(Queue *queue, int key);
 
 void dequeue(Queue *queue);
+
+// Helper functions
+void printQueue(Queue *queue);
+void freeQueue(Queue* queue);
 
 #endif //LAB_1_QUEUE_H

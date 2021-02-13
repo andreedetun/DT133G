@@ -23,8 +23,6 @@ Node *createNode() {
     return tmp;
 }
 
-// TODO: add more error checks.
-// TODO: We might need to sort the list on insertion. (???)
 void insert(List *list, int key) {
     Node *newNode = createNode();
     newNode->key = key;
@@ -70,6 +68,10 @@ void unlinkNode(List *list, Node *node) {
 
     if (node == list->tail) {
         list->tail = node->prev;
+    }
+
+    if(node == list->head) {
+        list->head = list->head->next;
     }
 
     if (node->prev != NULL) {
