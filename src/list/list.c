@@ -70,7 +70,7 @@ void unlinkNode(List *list, Node *node) {
         list->tail = node->prev;
     }
 
-    if(node == list->head) {
+    if (node == list->head) {
         list->head = list->head->next;
     }
 
@@ -175,9 +175,9 @@ Node *successor(List *list, Node *node) {
         return NULL;
     }
 
-    for(; current; current = current->next) {
-        if(current->key > node->key) {
-            if(ret == NULL || ret->key > current->key) {
+    for (; current; current = current->next) {
+        if (current->key > node->key) {
+            if (ret == NULL || ret->key > current->key) {
                 ret = current;
             }
         }
@@ -204,9 +204,9 @@ Node *predecessor(List *list, Node *node) {
         return NULL;
     }
 
-    for(; current; current = current->next) {
-        if(current->key < node->key) {
-            if(ret == NULL || ret->key < current->key) {
+    for (; current; current = current->next) {
+        if (current->key < node->key) {
+            if (ret == NULL || ret->key < current->key) {
                 ret = current;
             }
         }

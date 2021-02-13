@@ -12,7 +12,7 @@ typedef struct queue_t {
     size_t length;
 } Queue;
 
-int queueEmpty(Queue* queue);
+int queueEmpty(Queue *queue);
 
 Queue *createQueue();
 
@@ -22,6 +22,7 @@ void dequeue(Queue *queue);
 
 // Helper functions
 void printQueue(Queue *queue);
-void freeQueue(Queue* queue);
+
+void freeQueue(Queue *queue);
 
 #endif //LAB_1_QUEUE_H

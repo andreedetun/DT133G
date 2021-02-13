@@ -5,7 +5,8 @@ set(CMAKE_C_STANDARD 11)
 set(dir ${CMAKE_CURRENT_SOURCE_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${dir}/build)
 
-add_executable(${PROJECT_NAME} src/main.c
+add_executable(${PROJECT_NAME}
+        src/main.c
         src/list/list.h
         src/list/list.c
         src/stack/stack.c
@@ -24,3 +25,10 @@ add_executable(teststack
         src/stack/stack.c
         src/stack/stack.h
         tests/teststack/teststack.c)
+
+add_executable(testqueue
+        src/list/list.h
+        src/list/list.c
+        src/queue/queue.c
+        src/queue/queue.h
+        tests/testqueue/testqueue.c)

@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include "queue.h"
 
-int queueEmpty(Queue* queue) {
+int queueEmpty(Queue *queue) {
     return queue->head == NULL ? 1 : 0;
 }
 
 Queue *createQueue() {
-    Queue *tmp = (Queue*)malloc(sizeof(Queue));
+    Queue *tmp = (Queue *) malloc(sizeof(Queue));
     tmp->list = createList();
     tmp->head = NULL;
     tmp->tail = NULL;
@@ -17,7 +17,7 @@ Queue *createQueue() {
 }
 
 void enqueue(Queue *queue, int key) {
-    Node* newNode = createNode();
+    Node *newNode = createNode();
     newNode->key = key;
     insertNode(queue->list, newNode);
     queue->head = queue->list->tail;
@@ -26,7 +26,7 @@ void enqueue(Queue *queue, int key) {
 }
 
 void dequeue(Queue *queue) {
-    if(queueEmpty(queue)) {
+    if (queueEmpty(queue)) {
         printf("Can't dequeue from an empty queue");
     }
 
