@@ -1,4 +1,4 @@
-
+// André Falk Edetun & Kevin Güvenal
 #ifndef LAB_1_QUEUE_H
 #define LAB_1_QUEUE_H
 

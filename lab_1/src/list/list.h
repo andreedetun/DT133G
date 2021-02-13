@@ -1,3 +1,4 @@
+// André Falk Edetun & Kevin Güvenal
 #ifndef LAB_1_LIST_H
 #define LAB_1_LIST_H
 

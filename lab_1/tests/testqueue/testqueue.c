@@ -1,3 +1,4 @@
+// André Falk Edetun & Kevin Güvenal
 #include <stdio.h>
 #include <stdlib.h>
 #include "../../src/queue/queue.h"

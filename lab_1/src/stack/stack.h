@@ -1,3 +1,4 @@
+// André Falk Edetun & Kevin Güvenal
 #ifndef LAB_1_STACKS_H
 #define LAB_1_STACKS_H
 

@@ -1,3 +1,4 @@
+// André Falk Edetun & Kevin Güvenal
 #include <stdlib.h>
 #include <stdio.h>
 #include "list/list.h"
