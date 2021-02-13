@@ -26,6 +26,10 @@ void enqueue(Queue *queue, int key) {
 }
 
 void dequeue(Queue *queue) {
+    if(queueEmpty(queue)) {
+        printf("Can't dequeue from an empty queue");
+    }
+
     delete(queue->list, queue->head);
     queue->head = queue->list->tail;
     queue->length = queue->list->length;

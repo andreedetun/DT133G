@@ -12,3 +12,8 @@ add_executable(${PROJECT_NAME} src/main.c
         src/stack/stack.h
         src/queue/queue.c
         src/queue/queue.h)
+
+add_executable(testlist
+        src/list/list.h
+        src/list/list.c
+        tests/testlist/testlist.c)
