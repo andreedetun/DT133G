@@ -50,7 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-/build
-/.vscode
-/cmake-build-Debug
-/.idea
+*/build
+*/.vscode
+*/cmake-build-Debug
+*/.idea
