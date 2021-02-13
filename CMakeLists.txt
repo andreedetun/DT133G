@@ -17,3 +17,10 @@ add_executable(testlist
         src/list/list.h
         src/list/list.c
         tests/testlist/testlist.c)
+
+add_executable(teststack
+        src/list/list.h
+        src/list/list.c
+        src/stack/stack.c
+        src/stack/stack.h
+        tests/teststack/teststack.c)

@@ -105,5 +105,7 @@ int main() {
     test5(L1, L2);
     test6(L1, L2);
 
+    freeList(L1);
+    freeList(L2);
     return 0;
 }
