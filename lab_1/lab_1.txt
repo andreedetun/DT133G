@@ -26,4 +26,4 @@ The file testqueue.c carries out the following tests from the pdf file:
 
 
 To compile the tests run the following command:
-"cmake ." or if cmake is not availible use gcc from comandline to compile individual files.
+"cmake ." to compile all the tests and the list, stack and queue implementation at once or if cmake is not availible use gcc from comandline to compile individual files.
