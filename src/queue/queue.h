@@ -8,6 +8,8 @@ typedef struct queue_t {
     List *list;
     struct node_t *head;
     struct node_t *tail;
+
+    size_t length;
 } Queue;
 
 int queueEmpty(Queue* queue);

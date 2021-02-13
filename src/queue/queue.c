@@ -11,6 +11,7 @@ Queue *createQueue() {
     tmp->list = createList();
     tmp->head = NULL;
     tmp->tail = NULL;
+    tmp->length = 0;
 
     return tmp;
 }
@@ -21,11 +22,13 @@ void enqueue(Queue *queue, int key) {
     insertNode(queue->list, newNode);
     queue->head = queue->list->tail;
     queue->tail = queue->list->head;
+    queue->length = queue->list->length;
 }
 
 void dequeue(Queue *queue) {
     delete(queue->list, queue->head);
     queue->head = queue->list->tail;
+    queue->length = queue->list->length;
 }
 
 void printQueue(Queue *queue) {

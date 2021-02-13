@@ -10,6 +10,7 @@ Stack *createStack() {
     Stack *tmp = (Stack *) malloc(sizeof(Stack));
     tmp->list = createList();
     tmp->top = NULL;
+    tmp->length = 0;
 
     return tmp;
 }
@@ -19,11 +20,13 @@ void push(Stack *stack, int key) {
     newNode->key = key;
     insertNode(stack->list, newNode);
     stack->top = stack->list->tail;
+    stack->length = stack->list->length;
 }
 
 void pop(Stack *stack) {
     delete(stack->list, stack->top);
     stack->top = stack->list->tail;
+    stack->length = stack->list->length;
 }
 
 void printStack(Stack *stack) {

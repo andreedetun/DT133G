@@ -6,6 +6,8 @@
 typedef struct stack_t {
     List *list;
     struct node_t *top;
+
+    size_t length;
 } Stack;
 
 int stackEmpty(Stack *stack);
