@@ -1,0 +1,29 @@
+The files that implement the datastructures are the following:
+	- List: src/list/list.c, src/list/list.h
+	- Stack: src/stack/stack.c, src/stack/stack.h
+	- Queue: src/queue/queue.c, src/queue/queue.h
+
+The tests that were carried out are in the files:
+	- List tests: tests/testlist/testlist.c
+	- Stack tests: tests/teststack/teststack.c
+	- Queue tests: tests/testqueue/testqueue.c
+
+The file testlist.c carries out the following tests from the pdf file:
+	- L1 = [3,1,5,10,8,7], L2= [5,2,9,6,1,2]
+	- What are the minimum and maximum of L1?
+	- What are the minimum and maximum of L2?
+	- What is the successor and predecessor of the node with key 5 in L1?
+	- What is the successor and predecessor of the node with key 9 in L2?
+	- What is the key of the predecessor inL2of the maximum of L1?
+	- What is the key of the predecessor inL1of the maximum of L2?
+
+The file teststack.c carries out the following tests from the pdf file:
+	- Test your implementations by making a stack of your Swedish personal number (person-nummer)
+
+The file testqueue.c carries out the following tests from the pdf file:
+	- Test your implementations by making a queue of your Swedish personal number (person-nummer)
+
+
+
+To compile the tests run the following command:
+"cmake ." or if cmake is not availible use gcc from comandline to compile individual files.
