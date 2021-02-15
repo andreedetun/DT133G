@@ -1,3 +1,5 @@
+André Falk Edetun & Kevin Güvenal
+
 The files that implement the datastructures are the following:
 	- List: src/list/list.c, src/list/list.h
 	- Stack: src/stack/stack.c, src/stack/stack.h
