@@ -18,7 +18,7 @@ Queue *createQueue();
 
 void enqueue(Queue *queue, int key);
 
-void dequeue(Queue *queue);
+Node* dequeue(Queue *queue);
 
 // Helper functions
 void printQueue(Queue *queue);

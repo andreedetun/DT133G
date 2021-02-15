@@ -17,7 +17,7 @@ Stack *createStack();
 
 void push(Stack *stack, int key);
 
-void pop(Stack *stack);
+Node* pop(Stack *stack);
 
 // Helper functions
 void printStack(Stack *stack);

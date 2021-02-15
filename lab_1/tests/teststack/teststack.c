@@ -4,16 +4,27 @@
 #include "../../src/stack/stack.h"
 
 void test1() {
-    Stack *stack = createStack();
-    push(stack, 0);
-    push(stack, 1);
-    push(stack, 2);
-    push(stack, 0);
-    push(stack, 1);
-    push(stack, 0);
+    Stack *andrePersonalNum = createStack();
+    push(andrePersonalNum, 0);
+    push(andrePersonalNum, 1);
+    push(andrePersonalNum, 2);
+    push(andrePersonalNum, 0);
+    push(andrePersonalNum, 1);
+    push(andrePersonalNum, 0);
 
-    printStack(stack);
-    freeStack(stack);
+    Stack *kevinPersonalNum = createStack();
+    push(kevinPersonalNum, 5);
+    push(kevinPersonalNum, 1);
+    push(kevinPersonalNum, 6);
+    push(kevinPersonalNum, 0);
+    push(kevinPersonalNum, 1);
+    push(kevinPersonalNum, 0);
+
+    printStack(andrePersonalNum);
+    printStack(kevinPersonalNum);
+
+    freeStack(andrePersonalNum);
+    freeStack(kevinPersonalNum);
 }
 
 int main() {

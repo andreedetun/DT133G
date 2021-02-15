@@ -28,7 +28,7 @@ void insertNode(List *list, Node *node);
 
 void unlinkNode(List *list, Node *node);
 
-void delete(List *list, Node *node);
+Node* delete(List *list, Node *node);
 
 Node *search(List *list, int key);
 

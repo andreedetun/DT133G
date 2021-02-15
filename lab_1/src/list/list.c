@@ -91,13 +91,19 @@ void unlinkNode(List *list, Node *node) {
 // The delete function requires a pointer to the node that should be deleted.
 // We should consider making an override of the delete
 // function if we wish to delete a node based on some other params, though the delete logic stays the same.
-void delete(List *list, Node *node) {
+Node* delete(List *list, Node *node) {
     // Make sure the list we are trying to delete a node from is NOT empty.
     if (isEmpty(list)) {
         printf("Can't delete a node from an empty list.\n");
-        return;
+        return NULL;
     }
 
+    if(node == NULL) {
+        printf("Can't delete a node that doesn't exist\n");
+        return NULL;
+    }
+
+    Node* tmp = node;
     unlinkNode(list, node);
 
     // decrease length of the list.
@@ -105,6 +111,8 @@ void delete(List *list, Node *node) {
 
     // Make sure to free the memory of the node that has been unlinked.
     free(node);
+
+    return tmp;
 }
 
 Node *search(List *list, int key) {

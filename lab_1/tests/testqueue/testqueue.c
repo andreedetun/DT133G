@@ -4,16 +4,27 @@
 #include "../../src/queue/queue.h"
 
 void test1() {
-    Queue *queue = createQueue();
-    enqueue(queue, 0);
-    enqueue(queue, 1);
-    enqueue(queue, 2);
-    enqueue(queue, 0);
-    enqueue(queue, 1);
-    enqueue(queue, 0);
+    Queue *andrePersonalNum = createQueue();
+    enqueue(andrePersonalNum, 0);
+    enqueue(andrePersonalNum, 1);
+    enqueue(andrePersonalNum, 2);
+    enqueue(andrePersonalNum, 0);
+    enqueue(andrePersonalNum, 1);
+    enqueue(andrePersonalNum, 0);
 
-    printQueue(queue);
-    freeQueue(queue);
+    Queue *kevinPersonalNum = createQueue();
+    enqueue(kevinPersonalNum, 15);
+    enqueue(kevinPersonalNum, 1);
+    enqueue(kevinPersonalNum, 6);
+    enqueue(kevinPersonalNum, 0);
+    enqueue(kevinPersonalNum, 1);
+    enqueue(kevinPersonalNum, 0);
+
+    printQueue(andrePersonalNum);
+    printQueue(kevinPersonalNum);
+
+    freeQueue(andrePersonalNum);
+    freeQueue(kevinPersonalNum);
 }
 
 int main() {

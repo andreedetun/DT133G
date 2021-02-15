@@ -24,10 +24,14 @@ void push(Stack *stack, int key) {
     stack->length = stack->list->length;
 }
 
-void pop(Stack *stack) {
+Node* pop(Stack *stack) {
+    Node* tmp = stack->top;
+
     delete(stack->list, stack->top);
     stack->top = stack->list->tail;
     stack->length = stack->list->length;
+
+    return tmp;
 }
 
 void printStack(Stack *stack) {

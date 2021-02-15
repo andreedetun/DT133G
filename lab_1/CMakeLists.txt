@@ -33,3 +33,12 @@ add_executable(testqueue
         src/queue/queue.c
         src/queue/queue.h
         tests/testqueue/testqueue.c)
+
+add_executable(presentationTest
+        src/list/list.h
+        src/list/list.c
+        src/stack/stack.c
+        src/stack/stack.h
+        src/queue/queue.c
+        src/queue/queue.h
+        tests/presentationTest/presentationTest.c)
