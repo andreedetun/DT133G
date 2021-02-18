@@ -33,8 +33,6 @@ void insert(List *list, int key) {
         list->length++;
     } else {
         list->head->prev = newNode;
-
-        // increase length of the list.
         list->length++;
     }
 
@@ -61,7 +59,6 @@ void insertNode(List *list, Node *node) {
 // The unlink function is mainly written to be used inside the delete function.
 // Consider not making it global.
 void unlinkNode(List *list, Node *node) {
-    // Make sure the list we are trying to unlink a node from is NOT empty.
     if (isEmpty(list)) {
         printf("Can't unlink a node from an empty list.\n");
         return;
@@ -92,7 +89,6 @@ void unlinkNode(List *list, Node *node) {
 // We should consider making an override of the delete
 // function if we wish to delete a node based on some other params, though the delete logic stays the same.
 Node* delete(List *list, Node *node) {
-    // Make sure the list we are trying to delete a node from is NOT empty.
     if (isEmpty(list)) {
         printf("Can't delete a node from an empty list.\n");
         return NULL;
@@ -106,7 +102,6 @@ Node* delete(List *list, Node *node) {
     Node* tmp = node;
     unlinkNode(list, node);
 
-    // decrease length of the list.
     list->length--;
 
     // Make sure to free the memory of the node that has been unlinked.
@@ -116,7 +111,6 @@ Node* delete(List *list, Node *node) {
 }
 
 Node *search(List *list, int key) {
-    // Make sure the list we are trying to search is NOT empty.
     if (isEmpty(list)) {
         printf("Can't search an empty list.\n");
         return NULL;
