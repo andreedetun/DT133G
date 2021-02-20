@@ -1,7 +1,4 @@
-//
-// Created by an_de on 2021-02-15.
-//
-
+#include <stdlib.h>
 #include "utils.h"
 
 void swap(int *a, int *b) {
@@ -9,4 +6,19 @@ void swap(int *a, int *b) {
 
     *b = *a;
     *a = temp;
+}
+
+// Helper function to split a doubly linked list in half.
+List* split(List* list) {
+    Node* fast = list->head, *slow = list->head;
+
+    while (fast->next && fast->next->next) {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    List* tmp = createList();
+    tmp->head = slow->next;
+    slow->next = NULL;
+
+    return tmp;
 }

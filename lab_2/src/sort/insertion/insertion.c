@@ -1,9 +1,6 @@
-//
-// Created by an_de on 2021-02-15.
-//
 #include <stdio.h>
 #include <stdlib.h>
-#include "../utils/utils.h"
+#include "../../utils/utils.h"
 #include "insertion.h"
 
 void insertionSort(int *arr) {

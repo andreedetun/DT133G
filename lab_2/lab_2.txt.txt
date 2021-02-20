@@ -1,0 +1,12 @@
+indicate which file(s) implement the algorithm and/or data structure in the exercise:
+	- src/list/list.c & src/list/list.h, has the implementation of the linked list from lab 1
+	- src/sort/insertion/insertion.h & src/sort/insertion/insertion.c, implements an insertion sort for normal arrays
+	- src/sort/merge/mergelist.h & src/sort/merge/mergelist.c., implements a merge sort algorithm for a doubly linked list
+	- src/utils/utils.h & src/utils/utils.c, implements some helper functions for both of the algorithms
+
+a brief explanation of the tests that were carried out to test the implementation:
+The tests that were carried out were to sort the lists L1 and L2 from lab 1 using a doubly linked list and merge sort to sort in both ascending and descending order.
+Our personal numbers were also sorted using a doubly linked list and merge sort to sort in both ascending and descending order.
+
+instructions on how to execute a test to verify the implemented code:
+"cmake ." to compile all implementations and tests at once or if cmake is not availible use gcc from comandline to compile individual files.
