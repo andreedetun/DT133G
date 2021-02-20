@@ -1,2 +1,2 @@
 # DT133G
-Data structures and algorithms class @ oru uni
+Data structures and algorithms class @ oru uni.
