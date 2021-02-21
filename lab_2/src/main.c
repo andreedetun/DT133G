@@ -17,10 +17,9 @@ int main(int argc, char *argv[]) {
     // insertionSort(a);
     List *list = createList();
 
-    for (unsigned int i = 1; i <= size; i++) // note this loops from 1 <= i <= size
+    for (int i = 1 ; i <= size ; i++ ) // note this loops from 1 <= i <= size
     {
-        // printf("%d\n", a[i]);
-        insert(list, a[i]);
+        printf("%d\n", a[i]);
     }
 
     list = mergeSortAscending(list);

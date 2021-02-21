@@ -4,6 +4,7 @@
 #include "../../src/list/list.h"
 #include "../../src/sort/insertion/insertion.h"
 #include "../../src/sort/merge//mergelist.h"
+#define ARRAY_SIZE 6
 
 void test1() {
     List *L1 = createList(), *L2 = createList();
@@ -73,8 +74,20 @@ void test2() {
     freeList(L2);
 }
 
+void test3() {
+    int *a = load_file("../problems/test-10-3-problem");
+    int size = a[0];
+    insertionSort(a);
+    printf("Insertion sort test-10-3-problem: ");
+    for (int i = 1; i <= size; i++ ) // note this loops from 1 <= i <= size
+    {
+        printf("%d ", a[i]);
+    }
+    printf("\n--------------------------------\n");
+}
 int main(int argc, char *argv[]) {
     test1();
     test2();
+    test3();
     return 0;
 }
