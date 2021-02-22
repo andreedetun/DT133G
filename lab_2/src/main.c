@@ -19,10 +19,12 @@ int main(int argc, char *argv[]) {
 
     for (int i = 1 ; i <= size ; i++ ) // note this loops from 1 <= i <= size
     {
-        printf("%d\n", a[i]);
+        // printf("%d\n", a[i]);
+        insert(list, a[i]);
     }
 
     list = mergeSortAscending(list);
     printList(list);
+    freeList(list);
     return 0;
 }

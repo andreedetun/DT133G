@@ -43,3 +43,16 @@ add_executable(personalNumberTest
         src/sort/merge/mergelist.h
         src/sort/merge/mergelist.c
         tests/personalNumberTest/personalNumberTest.c)
+
+add_executable(presentationTest
+        src/load_files/load_file.h
+        src/load_files/load_file.c
+        src/list/list.h
+        src/list/list.c
+        src/utils/utils.h
+        src/utils/utils.c
+        src/sort/insertion/insertion.h
+        src/sort/insertion/insertion.c
+        src/sort/merge/mergelist.h
+        src/sort/merge/mergelist.c
+        tests/presentationTest/presentationTest.c)

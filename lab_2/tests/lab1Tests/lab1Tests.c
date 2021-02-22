@@ -75,7 +75,7 @@ void test2() {
 }
 
 void test3() {
-    int *a = load_file("../problems/test-10-3-problem");
+    int *a = load_file("../test-problems/test-10-3-problem");
     int size = a[0];
     insertionSort(a);
     printf("Insertion sort test-10-3-problem: ");
@@ -85,6 +85,7 @@ void test3() {
     }
     printf("\n--------------------------------\n");
 }
+
 int main(int argc, char *argv[]) {
     test1();
     test2();
