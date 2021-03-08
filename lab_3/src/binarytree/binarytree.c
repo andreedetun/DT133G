@@ -43,27 +43,28 @@ void insert(Tree *tree, int key) {
 }
 
 void transplant(Tree *tree, Node *u, Node *v) {
-    if (u->parent == NULL)
+    if(u->parent == NULL) {
         tree->root = v;
-    else if (u == u->parent->left)
+    }
+    else if(u == u->parent->left) {
         u->parent->left = v;
-    else
+    } else {
         u->parent->right = v;
+    }
 
-    if (v == NULL)
+    if(v != NULL) {
         v->parent = u->parent;
+    }
 }
 
 void delete(Tree *tree, Node *node) {
     if (node->left == NULL) {
         transplant(tree, node, node->right);
-    }
-    else if (node->right == NULL) {
+    } else if (node->right == NULL) {
         transplant(tree, node, node->left);
-    }
-    else {
+    } else {
         Node *minimum = min(node->right);
-        if(minimum->parent != node) {
+        if (minimum->parent != node) {
             transplant(tree, minimum, minimum->right);
             minimum->right = node->right;
             node->right->parent = minimum;
@@ -77,8 +78,8 @@ void delete(Tree *tree, Node *node) {
 
 Node *search(Node *root, int key) {
     Node *tmp = root;
-    while (tmp !=  NULL && key != tmp->key) {
-        if(key < tmp->key)
+    while (tmp != NULL && key != tmp->key) {
+        if (key < tmp->key)
             tmp = tmp->left;
         else
             tmp = tmp->right;
@@ -107,7 +108,7 @@ Node *min(Node *root) {
 Node *successor(Node *node) {
     Node *tmp = node;
 
-    if(tmp->right != NULL)
+    if (tmp->right != NULL)
         return min(tmp->right);
 
     Node *parent = tmp->parent;
@@ -122,7 +123,7 @@ Node *successor(Node *node) {
 Node *predecessor(Node *node) {
     Node *tmp = node;
 
-    if(tmp->left != NULL)
+    if (tmp->left != NULL)
         return max(tmp->left);
 
     Node *parent = tmp->parent;
@@ -135,10 +136,10 @@ Node *predecessor(Node *node) {
 }
 
 int computeDepth(Node *root) {
-    if(root == NULL) {
+    if (root == NULL) {
         return 0;
     }
-    if(root->left == NULL && root->right == NULL) {
+    if (root->left == NULL && root->right == NULL) {
         return 1;
     } else {
         int left = computeDepth(root->left);
@@ -150,7 +151,7 @@ int computeDepth(Node *root) {
 
 int computeSize(Node *root) {
     Node *tmp = root;
-    if(tmp == NULL)
+    if (tmp == NULL)
         return 0;
 
     return 1 + computeSize(tmp->left) + computeSize(tmp->right);
@@ -158,7 +159,7 @@ int computeSize(Node *root) {
 
 void inOrderTreeWalk(Node *root) {
     Node *tmp = root;
-    if(tmp != NULL) {
+    if (tmp != NULL) {
         inOrderTreeWalk(tmp->left);
         printf("%d->", tmp->key);
         inOrderTreeWalk(tmp->right);
@@ -166,7 +167,7 @@ void inOrderTreeWalk(Node *root) {
 }
 
 void destroyTree(Node *root) {
-    if(root != NULL) {
+    if (root != NULL) {
         destroyTree(root->left);
         destroyTree(root->right);
         free(root);

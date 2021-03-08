@@ -1,0 +1,11 @@
+The files that implement the binarytree data structure:
+	- src/binarytree/binarytree.h
+	- src/binarytree/binarytree.c
+
+Tests that were carried out:
+	- tests/operations/operations.c, tests all the operations within the binarytree data structure
+	- tests/sortingproblems/sortingproblems.c, tests a binary tree with data loaded from files (through arguments) that were given in lab 2.
+	- tests/presentation/presentation.c, is a test that jaoao handed out before we presented our lab.
+
+instructions on how to execute a test to verify the implemented code:
+"cmake ." to compile all implementations and tests at once or if cmake is not availible use gcc from comandline to compile individual files.

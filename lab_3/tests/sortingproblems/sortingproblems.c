@@ -8,7 +8,7 @@ void loadAndInsert(const char *filename) {
     int *arr = load_file(filename);
     int size = arr[0];
 
-    for(int i = 0; i < size; ++i) {
+    for(int i = 1; i <= size; ++i) {
         insert(tree, arr[i]);
     }
 
