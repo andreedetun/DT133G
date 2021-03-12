@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "graph.h"
 
-
 Graph *createGraph(int n) {
     if(n < 0) return NULL;
 
