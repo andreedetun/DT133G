@@ -5,10 +5,6 @@
 
 typedef struct graph_t {
     List *vertices;
-
-    // Cant be the same list, needs to keep track of connections
-    // in like pairs <v1, v2>
-    List *edges;
 } Graph;
 
 Graph *createGraph(int n);
@@ -16,5 +12,17 @@ Graph *createGraph(int n);
 int getNumVertices(Graph *graph);
 
 int getNumEdges(Graph *graph);
+
+void addDirectedEdge(Node *v1, Node *v2);
+
+void addUndirectedEdge(Node *v1, Node *v2);
+
+List *getInNeighbors(Graph *graph, Node *v);
+
+List *getOutNeighbors(Graph *graph, Node *v);
+
+List *getNeighbors(Graph *graph, Node *v);
+
+int hasEdge(Node *v1, Node *v2);
 
 #endif //LAB4_GRAPH_H

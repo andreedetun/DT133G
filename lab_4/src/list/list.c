@@ -1,6 +1,7 @@
 // André Falk Edetun & Kevin Güvenal
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "list.h"
 
 int isEmpty(List *list) {
@@ -17,6 +18,8 @@ List *createList() {
 
 Node *createNode() {
     Node *tmp = (Node *) malloc(sizeof(Node));
+    tmp->edges = createList();
+    tmp->weight = INT_MAX;
     tmp->prev = NULL;
     tmp->next = NULL;
     tmp->key = 0;

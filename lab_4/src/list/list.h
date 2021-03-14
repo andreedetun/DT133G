@@ -1,9 +1,13 @@
 // André Falk Edetun & Kevin Güvenal
 #ifndef LAB_1_LIST_H
 #define LAB_1_LIST_H
+typedef struct list_t List;
 
 typedef struct node_t {
     int key;
+
+    int weight;
+    struct list_t *edges;
     struct node_t *next;
     struct node_t *prev;
 } Node;
