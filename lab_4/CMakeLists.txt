@@ -9,7 +9,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${dir}/build)
 
 add_subdirectory(${src}/list)
 add_subdirectory(${src}/graph)
+add_subdirectory(${src}/bellmanford)
 
 add_executable(${PROJECT_NAME} ${src}/main.c)
 
-target_link_libraries(${PROJECT_NAME} list graph)
+target_link_libraries(${PROJECT_NAME} list graph bellmanford)

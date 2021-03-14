@@ -1,0 +1,1 @@
+add_library(bellmanford bellmanford.h bellmanford.c)

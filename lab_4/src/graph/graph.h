@@ -13,9 +13,9 @@ int getNumVertices(Graph *graph);
 
 int getNumEdges(Graph *graph);
 
-void addDirectedEdge(Node *v1, Node *v2);
+void addDirectedEdge(Node *v1, Node *v2, int weight);
 
-void addUndirectedEdge(Node *v1, Node *v2);
+void addUndirectedEdge(Node *v1, Node *v2, int weight);
 
 List *getInNeighbors(Graph *graph, Node *v);
 

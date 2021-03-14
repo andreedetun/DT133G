@@ -7,6 +7,8 @@ typedef struct node_t {
     int key;
 
     int weight;
+    int distance;
+    struct node_t *pi;
     struct list_t *edges;
     struct node_t *next;
     struct node_t *prev;
