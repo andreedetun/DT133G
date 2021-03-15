@@ -3,12 +3,16 @@
 #define LAB_1_LIST_H
 typedef struct list_t List;
 
+
+
 typedef struct node_t {
     int key;
 
     int weight;
     int distance;
     struct node_t *pi;
+    struct node_t *src;
+    struct node_t *dest;
     struct list_t *edges;
     struct node_t *next;
     struct node_t *prev;

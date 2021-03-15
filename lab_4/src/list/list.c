@@ -21,6 +21,7 @@ Node *createNode() {
     tmp->edges = createList();
     tmp->pi = NULL;
     tmp->weight = 9999999;
+    tmp->distance = 99999;
     tmp->prev = NULL;
     tmp->next = NULL;
     tmp->key = 0;

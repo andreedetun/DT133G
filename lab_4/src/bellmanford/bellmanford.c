@@ -11,10 +11,9 @@ void initializeSingleSource(Graph *graph, Node *source) {
     if (!graph || !source)
         return;
 
-    Node *current = graph->vertices->head;
-
-    for (; current; current = current->next) {
-        current->distance = 9999999;
+    Node *current = graph->edges->head;
+    for(; current; current = current->next) {
+        current->distance = 99999;
         current->pi = NULL;
     }
     source->distance = 0;
@@ -22,17 +21,12 @@ void initializeSingleSource(Graph *graph, Node *source) {
 
 /**
  *
- * @param u vertex 1
- * @param v vertex 2
- * @param weight
+ * @param edge
  */
-void relax(Node *u, Node *v) {
-    if (!u || !v)
-        return;
-
-    if (v->distance > (u->distance + u->weight)) {
-        v->distance = u->distance + u->weight;
-        v->pi = u;
+void relax(Node *edge) {
+    if(edge->dest->distance > edge->src->distance + edge->weight) {
+        edge->dest->distance = edge->src->distance + edge->weight;
+        edge->src->pi = edge->dest;
     }
 }
 
@@ -46,23 +40,17 @@ void relax(Node *u, Node *v) {
 int bellmanFord(Graph *graph, Node *source) {
     initializeSingleSource(graph, source);
 
-    for (int i = 0; i < (getNumVertices(graph) - 1); ++i) {
-        Node *currentVertex = graph->vertices->head;
-        for (; currentVertex; currentVertex = currentVertex->next) {
-            Node *currentEdge = currentVertex->edges->head;
-            for (; currentEdge; currentEdge = currentEdge->next) {
-                relax(currentVertex, currentEdge);
-            }
+    for(int i = 1; i < getNumVertices(graph) - 1; ++i) {
+        Node *currentEdge = graph->edges->head;
+        for(; currentEdge; currentEdge = currentEdge->next) {
+            relax(currentEdge);
         }
     }
 
-    Node *currentVertex = graph->vertices->head;
-    for(; currentVertex; currentVertex = currentVertex->next) {
-        Node *currentEdge = currentVertex->edges->head;
-        for(; currentEdge; currentEdge = currentEdge->next) {
-            if(currentEdge->distance > (currentEdge->distance + currentEdge->weight)) {
-                return 0;
-            }
+    Node *currentEdge = graph->edges->head;
+    for(; currentEdge; currentEdge = currentEdge->next) {
+        if(currentEdge->src->distance > currentEdge->dest->distance + currentEdge->weight) {
+            return 0;
         }
     }
     return 1;

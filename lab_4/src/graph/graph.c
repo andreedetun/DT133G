@@ -13,8 +13,9 @@ Graph *createGraph(int n) {
 
     Graph *graph = (Graph *) malloc(sizeof(Graph));
     graph->vertices = createList();
+    graph->edges = createList();
 
-    for (int i = 1; i <= n; ++i) {
+    for (int i = 0; i < n; ++i) {
         insert(graph->vertices, i);
     }
     return graph;
@@ -46,12 +47,12 @@ int getNumEdges(Graph *graph) {
     if (!graph)
         return 0;
 
-    Node *current = graph->vertices->head;
-    int total = 0;
-    for (; current; current = current->next) {
-        total += current->edges->length;
-    }
-    return total;
+    // If the list of vertices is empty we obviously have 0 vertices.
+    if (isEmpty(graph->edges))
+        return 0;
+
+    // We can take advantage of the built in length of the list.
+    return graph->edges->length;
 }
 
 /**
@@ -60,13 +61,16 @@ int getNumEdges(Graph *graph) {
  * @param v2 endpoint node for the edge
  * @param weight cost between the 2 nodes
  */
-void addDirectedEdge(Node *v1, Node *v2, int weight) {
+void addDirectedEdge(Graph *graph, Node *v1, Node *v2, int weight) {
     if (!v1 || !v2)
         return;
 
-    v1->weight = weight;
-    v2->weight = weight;
-    insertNode(v1->edges, v2);
+    Node *newEdge = createNode();
+    newEdge->src = v1;
+    newEdge->dest = v2;
+    newEdge->weight = weight;
+
+    insertNode(graph->edges, newEdge);
 }
 
 /**
@@ -75,14 +79,22 @@ void addDirectedEdge(Node *v1, Node *v2, int weight) {
  * @param v2 endpoint node for the edge
  * @param weight cost between the 2 nodes
  */
-void addUndirectedEdge(Node *v1, Node *v2, int weight) {
+void addUndirectedEdge(Graph *graph, Node *v1, Node *v2, int weight) {
     if (!v1 || !v2)
         return;
 
-    v1->weight = weight;
-    v2->weight = weight;
-    insertNode(v1->edges, v2);
-    insertNode(v2->edges, v1);
+    Node *newEdge = createNode();
+    newEdge->src = v1;
+    newEdge->dest = v2;
+    newEdge->weight = weight;
+
+    Node *secondEdge = createNode();
+    secondEdge->src = v2;
+    secondEdge->dest = v1;
+    secondEdge->weight = weight;
+
+    insertNode(graph->edges, newEdge);
+    insertNode(graph->edges, secondEdge);
 }
 
 /**
@@ -96,13 +108,10 @@ List *getInNeighbors(Graph *graph, Node *v) {
         return NULL;
 
     List *neighborList = createList();
-    Node *currentVertex = graph->vertices->head;
-    for (; currentVertex; currentVertex = currentVertex->next) {
-        Node *currentEdge = currentVertex->edges->head;
-        for (; currentEdge; currentEdge = currentEdge->next) {
-            if (hasEdge(currentEdge, v)) {
-                insertNode(neighborList, currentEdge);
-            }
+    Node *currentEdge = graph->edges->head;
+    for(; currentEdge; currentEdge = currentEdge->next) {
+        if(currentEdge->src != v && currentEdge->dest == v) {
+            insert(neighborList, currentEdge->src->key);
         }
     }
     return neighborList;
@@ -119,13 +128,10 @@ List *getOutNeighbors(Graph *graph, Node *v) {
         return NULL;
 
     List *neighborList = createList();
-    Node *currentVertex = graph->vertices->head;
-    for (; currentVertex; currentVertex = currentVertex->next) {
-        Node *currentEdge = currentVertex->edges->head;
-        for (; currentEdge; currentEdge = currentEdge->next) {
-            if (hasEdge(currentEdge, v)) {
-                insertNode(neighborList, v);
-            }
+    Node *currentEdge = graph->edges->head;
+    for(; currentEdge; currentEdge = currentEdge->next) {
+        if(currentEdge->src == v && currentEdge->dest != v) {
+            insert(neighborList, currentEdge->dest->key);
         }
     }
     return neighborList;
@@ -169,14 +175,16 @@ List *getNeighbors(Graph *graph, Node *v) {
  * @param v2 endpoint
  * @return 1 if edge exists 0 if not
  */
-int hasEdge(Node *v1, Node *v2) {
+int hasEdge(Graph *graph, Node *v1, Node *v2) {
     if (!v1 || !v2)
         return 0;
 
-    Node *current = v1->edges->head;
-    for (; current; current = current->next) {
-        if (current == v2)
+    Node *currentEdge = graph->edges->head;
+    for(; currentEdge; currentEdge = currentEdge->next) {
+        if((currentEdge->src == v1 && currentEdge->dest == v2) ||
+                (currentEdge->src == v2 && currentEdge->dest == v1)) {
             return 1;
+        }
     }
     return 0;
 }

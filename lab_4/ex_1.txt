@@ -1,0 +1,19 @@
+The files that implement the graph data structure:
+	- src/graph/graph.h
+	- src/graph/graph.c
+
+The files that implement the bellman-ford algorithm:
+    - src/bellmanford/bellmanford.c
+    - src/bellmanford/bellmanford.h
+
+The files that implement the list data structure:
+    - src/list/list.h
+    - src/list/list.c
+
+Tests that were carried out:
+	- tests/graph/graphtest.c, tests all the operations within the graph data structure
+	- tests/bellman/bellmantest.c, tests bellman-ford algorithm on graphs
+	- tests/presentation/presentation.c, is a test that jaoao handed out before we presented our lab.
+
+instructions on how to execute a test to verify the implemented code:
+"cmake ." to compile all implementations and tests at once or if cmake is not availible use gcc from comandline to compile individual files.
