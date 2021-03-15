@@ -7,7 +7,6 @@ typedef struct list_t List;
 
 typedef struct node_t {
     int key;
-
     int weight;
     int distance;
     struct node_t *pi;

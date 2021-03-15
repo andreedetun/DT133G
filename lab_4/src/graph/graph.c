@@ -55,11 +55,13 @@ int getNumEdges(Graph *graph) {
     return graph->edges->length;
 }
 
+
 /**
  *
- * @param v1 source node for the edge
- * @param v2 endpoint node for the edge
- * @param weight cost between the 2 nodes
+ * @param graph
+ * @param v1 source
+ * @param v2 endpoint
+ * @param weight
  */
 void addDirectedEdge(Graph *graph, Node *v1, Node *v2, int weight) {
     if (!v1 || !v2)
@@ -75,9 +77,10 @@ void addDirectedEdge(Graph *graph, Node *v1, Node *v2, int weight) {
 
 /**
  *
- * @param v1 source node for the edge
- * @param v2 endpoint node for the edge
- * @param weight cost between the 2 nodes
+ * @param graph
+ * @param v1 source
+ * @param v2 endpoint
+ * @param weight
  */
 void addUndirectedEdge(Graph *graph, Node *v1, Node *v2, int weight) {
     if (!v1 || !v2)
