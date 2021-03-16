@@ -24,6 +24,9 @@ void initializeSingleSource(Graph *graph, Node *source) {
  * @param edge
  */
 void relax(Node *edge) {
+    if(!edge)
+        return;
+
     if(edge->dest->distance > edge->src->distance + edge->weight) {
         edge->dest->distance = edge->src->distance + edge->weight;
         edge->src->pi = edge->dest;
@@ -38,6 +41,9 @@ void relax(Node *edge) {
  * @return
  */
 int bellmanFord(Graph *graph, Node *source) {
+    if(!graph || !source)
+        return 0;
+
     initializeSingleSource(graph, source);
 
     for(int i = 1; i < getNumVertices(graph) - 1; ++i) {
@@ -49,7 +55,7 @@ int bellmanFord(Graph *graph, Node *source) {
 
     Node *currentEdge = graph->edges->head;
     for(; currentEdge; currentEdge = currentEdge->next) {
-        if(currentEdge->src->distance > currentEdge->dest->distance + currentEdge->weight) {
+        if(currentEdge->dest->distance > currentEdge->src->distance + currentEdge->weight) {
             return 0;
         }
     }
